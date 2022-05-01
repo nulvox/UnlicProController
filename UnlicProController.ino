@@ -157,8 +157,8 @@ void setupPins(){
 }
 
 void setup() {
-  buttonStartBefore = false;
-  buttonSelectBefore = false;
+  buttonHomeBefore = false;
+  buttonShiftBefore = false;
   setupPins();
   SetupHardware();
   GlobalInterruptEnable();
@@ -230,7 +230,7 @@ void processDPAD(){
     ReportData.RX = 128;
     ReportData.RY = 128;
     if ((!buttonStatus[BUTTONSHIFT])) { // without shift pressed, just input some regular inputs
-      if ((buttonStatus[BUTTONUP]) {
+      if ((buttonStatus[BUTTONUP])) {
         if (buttonStatus[BUTTONLEFT]) {ReportData.HAT = DPAD_UPLEFT_MASK_ON;}
         else if (buttonStatus[BUTTONRIGHT]) {ReportData.HAT = DPAD_UPRIGHT_MASK_ON;}
         else {ReportData.HAT = DPAD_UP_MASK_ON;}
@@ -245,13 +245,13 @@ void processDPAD(){
     } else { // with shift pressed, do SOCD
     // left or right will be negated if present.
     // without left or right, down will become up and up will become nothing
-      if ((buttonStatus[BUTTONUP]) {
-        if (buttonStatus[BUTTONRIGHT])){ReportData.HAT = DPAD_UP_MASK_ON;}
+      if ((buttonStatus[BUTTONUP])) {
+        if (buttonStatus[BUTTONRIGHT]){ReportData.HAT = DPAD_UP_MASK_ON;}
         else if (buttonStatus[BUTTONLEFT]) {ReportData.HAT = DPAD_UP_MASK_ON;} 
         else{ReportData.HAT = DPAD_NOTHING_MASK_ON;}
-      } else if ((buttonStatus[BUTTONDOWN]) {
-        if (buttonStatus[BUTTONRIGHT])) {ReportData.HAT = DPAD_DOWN_MASK_ON;}
-        else if (buttonStatus[BUTTONLEFT])) {ReportData.HAT = DPAD_DOWN_MASK_ON;}
+      } else if ((buttonStatus[BUTTONDOWN])) {
+        if ((buttonStatus[BUTTONRIGHT])) {ReportData.HAT = DPAD_DOWN_MASK_ON;}
+        else if ((buttonStatus[BUTTONLEFT])) {ReportData.HAT = DPAD_DOWN_MASK_ON;}
         else {ReportData.HAT = DPAD_UP_MASK_ON;}
       } else {ReportData.HAT = DPAD_NOTHING_MASK_ON;}      
     }
