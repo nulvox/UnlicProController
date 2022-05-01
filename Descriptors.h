@@ -53,4 +53,3 @@ enum StringDescriptors_t
                                         ATTR_WARN_UNUSED_RESULT ATTR_NON_NULL_PTR_ARG(3);
 
 #endif
-
